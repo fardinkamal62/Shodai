@@ -14,17 +14,14 @@
       }
     },
     "preview": {
-      "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
-      }
+      "distribution": "internal"
     },
     "production": {
       "ios": {
         "resourceClass": "m-medium"
       },
       "android": {
-        "buildType": "apk"
+        "buildType": "app-bundle"
       }
     }
   },
