@@ -1,10 +1,12 @@
-import {View, TouchableOpacity, Text, FlatList, ScrollView, StyleSheet} from 'react-native';
+import {View, TouchableOpacity, Text, ScrollView, StyleSheet} from 'react-native';
 import {useState} from 'react';
 
 const variables = require('../assets/variables');
 const colors = variables.colors
 
 import Cart from './Cart';
+
+import * as utilities from '../utils/utilities';
 
 export default (props) => {
     const [item, setItem] = useState({});
@@ -23,13 +25,15 @@ export default (props) => {
                                         name: t.name,
                                         quantity: t.quantity,
                                         price: t.price,
-                                        unit: t.unit,
+                                        basePrice: t.price,
+                                        baseQuantity: t.quantity,
+                                        steps: t.steps
                                     })
                                     e.stopPropagation();
                                 }}>
                                     <View style={style.dropdown}>
                                         <Text>{t.name}</Text>
-                                        <Text>{t.quantity} {t.unit}</Text>
+                                        <Text>{utilities.changeQuantity(t.quantity)} {t.quantity > 999 ? 'KG' : 'Gram'}</Text>
                                         <Text>{t.price} Taka</Text>
                                     </View>
                                 </TouchableOpacity>

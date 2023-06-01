@@ -17,7 +17,7 @@ export const check = async () => {
     try {
         const response = await fetch(projectUrl, fetchOptions);
         if (response.status === 200) {
-            return {status: 400, message: 'Project is on!'};
+            return {status: 200, message: 'Project is on!'};
         } else {
             return {status: 404, message: 'Project is off.'};
         }

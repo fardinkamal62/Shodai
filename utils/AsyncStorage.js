@@ -47,3 +47,13 @@ export async function getMultiple(keys) {
         console.error(e)
     }
 }
+
+export async function storeMultiple(data) {
+    try {
+        for (let i = 0; i < data.length; i++) {
+            await AsyncStorage.default.setItem(data[i]['name'], JSON.stringify(data[i]))
+        }
+    } catch (e) {
+        console.error(e)
+    }
+}
